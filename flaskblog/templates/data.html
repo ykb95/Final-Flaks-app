@@ -1,0 +1,98 @@
+<!DOCTYPE html> 
+
+<html> 
+<head> 
+    <title>Sculpture Cost Prediction</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head> 
+
+<!-- Adding some style to table (OPTIONAL) -->
+ <style type="text/css"> 
+
+    th:tr{ 
+        color: blue;
+        /* background: black; */
+    } 
+
+    tr:nth-of-type(2n){ 
+        
+        border: 1px solid black; 
+        background-color: rgba(150, 150, 150, 0.5); 
+
+    } 
+
+    td { 
+        padding: 8px 8px; 
+        border: 1px solid black;
+        color: green; 
+    }
+    
+</style>  
+
+<body> 
+
+    <div class="container">
+    <span>
+        <!-- {{ pagination.info }} -->
+        <!-- {{ pagination.links }} -->
+
+        <!-- <div class="dropdown"> -->
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Airline
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Origin Airport
+                </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Destination Airport
+                    </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+          </div>
+    </span>
+
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead class="table-dark">
+              <tr>
+                    <th scope="col">#</th>                   
+                    <th scope="col">airline</th>
+                    <th scope="col">origin_airport</th> 
+                    <th scope="col">destination_airport</th>                     
+                    <th scope="col">total_delay</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in range(0, len) %}
+              <tr>
+                    <td>{{i+1}}</td>                  
+                    <td>{{airline_list_pagination[i]}}</td>
+                    <td>{{origin_airport_list_pagination[i]}}</td>
+                    <td>{{destination_airport_list_pagination[i]}}</td>                    
+                    <td>{{prediction_list_pagination[i]}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {{ pagination.links }}
+    </div>
+
+</body> 
+</html> 
